@@ -4,7 +4,7 @@ const router = Router()
 
 
 
-
+router.get('/:id', isLoggedIn, comicCtrl.show)
 router.post('/:id/addToCollection', isLoggedIn, comicCtrl.addToCollection)
 router.delete('/:id/removeFromCollection', isLoggedIn, comicCtrl.removeFromCollection)
 

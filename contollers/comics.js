@@ -4,7 +4,12 @@ export{
     index,
     addToCollection,
     removeFromCollection,
+    show,
 }
+function show(req, res) {
+    
+}
+
 function index(req, res, next) {
     let modelQuery = req.query.name
     ? {name: new RegExp(req.query.name, "i")}

@@ -2,11 +2,11 @@ import { Router } from 'express'
 import * as comicCtrl from '../contollers/comics.js'
 const router = Router()
 
-router.post('/search', isLoggedIn, comicCtrl.search)
-router.get('/:id', isLoggedIn, gamesCtrl.show)
-router.post('/:id/addToCollection', isLoggedIn, gamesCtrl.addToCollection)
-router.delete('/:id/removeFromCollection', isLoggedIn, gamesCtrl.removeFromCollection)
 
+
+
+router.post('/:id/addToCollection', isLoggedIn, comicCtrl.addToCollection)
+router.delete('/:id/removeFromCollection', isLoggedIn, comicCtrl.removeFromCollection)
 
 
 

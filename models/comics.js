@@ -7,6 +7,7 @@ export {
 
 const comicSchema = new Schema({
   name: String,
+  author: String,
   rawgId: Number,
   released: Date,
   imageUrl: String,

@@ -15,8 +15,8 @@ function show(req, res) {
 
 function update(req, res) {
   Comic.findByIdAndUpdate(req.params.id, req.body, {new: true})
-  .then(()=>{
-    res.redirect(`/comics/${comics._id}`)
+  .then((comics)=>{
+    res.redirect("/comics")
   })
 }
 
@@ -30,8 +30,10 @@ function deleteComic(req, res) {
 function edit(req, res) {
   Comic.findById(req.params.id)
   .then(comics =>{
-    res.render('comics/edit')
-    comics
+    res.render('comics/edit',{
+      comics,
+      
+    })
   })
 }
 
@@ -39,7 +41,8 @@ function index(req, res) {
    Comic.find({})
   .then(comics=>{
       res.render('comics/index.ejs',{
-          comics
+          comics,
+          
       })
   })
 }

@@ -3,15 +3,17 @@
   <% if (comics) { %> 
     <form action="/comics" method="POST">
       <input type="text" name="name" placeholder="Enter Comic Name">
+      
+      
       <br>
       <button type="submit"> new comic button</button>
       </form>
       
       <% comics.forEach(comics => { %>
        <a href="/comics/<%= comics._id%>/edit"><%= comics.name %> </a>
-       
+       Writen By:  
          <form action="/comics/<%= comics._id%>?_method=DELETE" method="POST">
-           <button type="submit">X</button>
+          <button type="submit">X</button>
           </form>
         </form>
       <% }) %>

@@ -2,71 +2,79 @@ import { Comic } from '../models/comics.js'
 import { Profile } from '../models/profile.js'
 export{
     index,
-    addToCollection,
-    removeFromCollection,
+    create,
     show,
+    edit,
+    deleteComic as delete,
+    update
 }
 function show(req, res) {
     
 }
 
-function index(req, res, next) {
-    let modelQuery = req.query.name
-    ? {name: new RegExp(req.query.name, "i")}
-    : {}
-    Profile.find(modelQuery)
-    .sort("name")
-    .exec(function(err, porfile){
-        if (err) return next (err)
-    })
-      res.render('comic/index', {
-        students: students,
-        name: req.query.name,
-        user: req.user
+
+function update(req, res) {
+  Comic.findByIdAndUpdate(req.params.id, req.body, {new: true})
+  .then(()=>{
+    res.redirect(`/comics/${comics._id}`)
+  })
+}
+
+function deleteComic(req, res) {
+  Comic.findByIdAndDelete(req.params.id)
+  .then(()=>{
+    res.redirect('/comics')
+  })
+}
+
+function edit(req, res) {
+  Comic.findById(req.params.id)
+  .then(comics =>{
+    res.render('comics/edit')
+    comics
+  })
+}
+
+function index(req, res) {
+   Comic.find({})
+  .then(comics=>{
+      res.render('comics/index.ejs',{
+          comics
       })
-    }
+  })
+}
+
+function create(req, res) {
+  Comic.create(req.body)
+  .then(()=>{
+    res.redirect('/comics')
+  })
+}
   
-function addToCollection(req, res) {
-    // Add id of the logged in user to req.body for creating a game for the first time (if it doesn't exist in the database)
-    req.body.collectedBy = req.user.profile._id
-    // Look to see if the game already exists in the database
-    Game.findOne({ rawgId: req.params.id })
-    .then(game => {
-      // If it does, push the user's profile id to game.collectedBy
-      if (game) {
-        game.collectedBy.push(req.user.profile._id)
-        game.save()
-        .then(() => {
-          res.redirect(`/games/${req.params.id}`)
-        })
-      } else {
-        // If it doesn't exist in the database, create it!
-        Game.create(req.body)
-        .then(() => {
-          res.redirect(`/games/${req.params.id}`)
-        })
-      }
-    })
-    .catch(err => {
-      console.log(err)
-      res.redirect('/')
-    })
-  }
-  
-  function removeFromCollection(req, res) {
-    // Find the game in the database
-    Game.findOne({ rawgId: req.params.id })
-    .then(game => {
-      // Remove the user's profile id from collectedBy
-      game.collectedBy.remove({_id: req.user.profile._id})
-      game.save()
-      .then(() => {
-        res.redirect(`/games/${req.params.id}`)
-      })
-    })
-    .catch(err => {
-      console.log(err)
-      res.redirect('/')
-    })
-  }
+// function addToCollection(req, res) {
+//     // Add id of the logged in user to req.body for creating a game for the first time (if it doesn't exist in the database)
+//     req.body.collectedBy = req.user.profile._id
+//     // Look to see if the game already exists in the database
+//     Comic.findOne({ rawgId: req.params.id })
+//     .then(game => {
+//       // If it does, push the user's profile id to game.collectedBy
+//       if (game) {
+//         comic.collectedBy.push(req.user.profile._id)
+//         comic.save()
+//         .then(() => {
+//           res.redirect(`/comics/${req.params.id}`)
+//         })
+//       } else {
+//         // If it doesn't exist in the database, create it!
+//         Comic.create(req.body)
+//         .then(() => {
+//           res.redirect(`/comics/${req.params.id}`)
+//         })
+//       }
+//     })
+//     .catch(err => {
+//       console.log(err)
+//       res.redirect('/')
+//     })
+//   }
   

@@ -3,10 +3,13 @@ import * as comicCtrl from '../contollers/comics.js'
 const router = Router()
 
 
+router.get('/', comicCtrl.index)
+router.get('/:id', comicCtrl.show)
+router.get('/:id/edit', comicCtrl.edit)
+router.post('/', comicCtrl.create)
+router.put('/:id', comicCtrl.update)
+router.delete('/:id', comicCtrl.delete)
 
-router.get('/:id', isLoggedIn, comicCtrl.show)
-router.post('/:id/addToCollection', isLoggedIn, comicCtrl.addToCollection)
-router.delete('/:id/removeFromCollection', isLoggedIn, comicCtrl.removeFromCollection)
 
 
 

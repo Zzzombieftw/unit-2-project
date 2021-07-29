@@ -2,7 +2,7 @@ import { Router } from 'express'
 import * as comicCtrl from '../contollers/comics.js'
 const router = Router()
 
-
+router.post('/search', comicCtrl.search)
 router.get('/', comicCtrl.index)
 router.get('/:id', comicCtrl.show)
 router.get('/:id/edit', comicCtrl.edit)

@@ -14,16 +14,31 @@
        
       <% comics.forEach(comics => { %>
         
-       <a href="/comics/<%= comics._id%>/edit"><%= comics.name %> </a>
-       <br>
-       Writen By: <%= comics.author %> 
-       <br>
-       Released: <%= comics.released %> 
-        
-         <form action="/comics/<%= comics._id%>?_method=DELETE" method="POST">
-          <button type="submit">X</button>
-          </form>
-        </form>
+        <div class="card" style="width: 18rem;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text"> </p>
+            <h5 class="card-title"><a href="/comics/<%= comics._id%>/edit"><%= comics.name %> </a></h5>
+            <p>
+              <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                Infromation
+              </a>
+              
+            </p>
+            <div class="collapse" id="collapseExample">
+              <div class="card card-body">
+                Writen By: <%= comics.author %><br>
+                Released: <%= comics.released %> 
+                <form action="/comics/<%= comics._id%>?_method=DELETE" method="POST">
+                  <button type="submit">X</button>
+                  </form>
+                </form>
+         
+              </div>
+            </div>
+       
+       
+         
       <% }) %>
   <% } else {%>
     <h2>no comics are rendering</h2>

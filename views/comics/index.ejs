@@ -12,8 +12,8 @@
       <button type="submit"> new comic button</button>
       </form>
       <% comics.forEach(comics => { %>
-        <div class="card" style="width: 18rem;">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxbfRho7MaYY1gJubher-mQ8OuDCE_J5bR5Q&usqp=CAU" class="card-img-top" alt="...">
+        <div class="card" style="width: 40rem;">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxbfRho7MaYY1gJubher-mQ8OuDCE_J5bR5Q&usqp=CAU/comics/<%= comics._id%>/edit" class="card-img-top" alt="...">
           <div class="card-body"></div>
             <p class="card-text"> </p>
             <h5 class="card-title"><a href="/comics/<%= comics._id%>/edit"><%= comics.name %> </a></h5>

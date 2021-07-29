@@ -12,6 +12,7 @@ import { passUserToView } from './middleware/middleware.js'
 
 import { router as indexRouter } from './routes/index.js'
 import { router as comicsRouter } from './routes/comics.js'
+import { router as authRouter } from './routes/auth.js'
 
 const app = express()
 
@@ -57,7 +58,7 @@ app.use(passport.session())
 app.use(passUserToView)
 
 app.use('/', indexRouter)
-
+app.use('/auth', authRouter)
 
 app.use('/comics', comicsRouter)
 

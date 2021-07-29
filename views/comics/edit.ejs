@@ -8,7 +8,7 @@
     
    <form action="/comics/<%= comics._id %>?_method=PUT" method="POST">
     <input type="text" name="name" value="<%= comics.name%>">
-    <input type="text" name="author" placeholder="Enter Author Name">
+    <input type="text" name="author" value="<%= comics.author %> " placeholder="Enter Author Name">
     <input type="datetime-local" name="date">
     <button>Change Comic</button>
     </form>

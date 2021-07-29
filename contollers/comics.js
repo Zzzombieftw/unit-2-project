@@ -39,9 +39,11 @@ function edit(req, res) {
 
 function index(req, res) {
    Comic.find({})
-  .then(comics=>{
+  .then((comics ,author,released)=>{
       res.render('comics/index.ejs',{
           comics,
+          author,
+          released
           
       })
   })

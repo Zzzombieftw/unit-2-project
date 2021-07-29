@@ -1,17 +1,21 @@
-
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
 <body>
   <% if (comics) { %> 
     <form action="/comics" method="POST">
       <input type="text" name="name" placeholder="Enter Comic Name">
-      
-      
-      <br>
+      <input type="text" name="author" placeholder="Enter Author Name">
+      <input type="datetime-local" name="date">
+    <br>
       <button type="submit"> new comic button</button>
       </form>
       
       <% comics.forEach(comics => { %>
        <a href="/comics/<%= comics._id%>/edit"><%= comics.name %> </a>
-       Writen By:  
+       <br>
+       Writen By: <%= comics.author %> 
+       <br>
+       Released: <%= comics.released %> 
          <form action="/comics/<%= comics._id%>?_method=DELETE" method="POST">
           <button type="submit">X</button>
           </form>
@@ -22,3 +26,4 @@
   <%  }%> 
   </body>
 </html>
+<%- include('../partials/footer') %>

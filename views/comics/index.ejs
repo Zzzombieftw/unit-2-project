@@ -2,6 +2,7 @@
 <%- include('../partials/nav') %>
 <body>
   <% if (comics) { %> 
+    <img src="images.jpg" alt="">
     <form action="/comics" method="POST">
       <input type="text" name="name" placeholder="Enter Comic Name">
       <input type="text" name="author" placeholder="Enter Author Name">
@@ -9,37 +10,29 @@
     <br>
       <button type="submit"> new comic button</button>
       </form>
-      
-    
-       
       <% comics.forEach(comics => { %>
-        
         <div class="card" style="width: 18rem;">
-          <img src="cover_0_0.img_assist_custom_0.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
+          <img src="/public/stylesheets/images/logo/2014298.jpg" class="card-img-top" alt="...">
+          <div class="card-body"></div>
             <p class="card-text"> </p>
             <h5 class="card-title"><a href="/comics/<%= comics._id%>/edit"><%= comics.name %> </a></h5>
             <p>
               <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                 Infromation
               </a>
-              
-            </p>
-            <div class="collapse" id="collapseExample">
-              <div class="card card-body">
+              </p>
+              <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+            
                 Writen By: <%= comics.author %><br>
                 Released: <%= comics.released %> 
                 <form action="/comics/<%= comics._id%>?_method=DELETE" method="POST">
                   <button type="submit">X</button>
                   </form>
                 </form>
-         
               </div>
             </div>
-       
-       
-         
-      <% }) %>
+       <% }) %>
   <% } else {%>
     <h2>no comics are rendering</h2>
   <%  }%> 

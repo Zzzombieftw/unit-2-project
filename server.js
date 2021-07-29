@@ -3,7 +3,7 @@ import createError from 'http-errors'
 import express from 'express'
 import path from 'path'
 import { fileURLToPath } from 'url'
-
+import Swup from 'swup'
 import session from 'express-session'
 import logger from 'morgan'
 import methodOverride from 'method-override'
@@ -14,6 +14,7 @@ import { router as indexRouter } from './routes/index.js'
 import { router as comicsRouter } from './routes/comics.js'
 
 const app = express()
+
 
 import('./config/database.js')
 import('./config/passport.js')

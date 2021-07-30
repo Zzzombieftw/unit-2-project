@@ -29,6 +29,7 @@
 ## Future Features
 * Use a Api
 * Add a anime collection 
+* Add profiles page
 
 
 

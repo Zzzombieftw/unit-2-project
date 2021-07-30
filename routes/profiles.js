@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import * as profilesCtrl from '../controllers/proflies.js' 
+import * as profilesCtrl from '../contollers/profiles.js' 
 
 export {
   router
@@ -8,7 +8,7 @@ export {
 const router = Router()
 
 router.get('/', isLoggedIn, profilesCtrl.index)
-router.get('/:id', isLoggedIn, profilesCtrl.show)
+
 router.get('/:id/edit', isLoggedIn,profilesCtrl.edit)
 
 function isLoggedIn(req, res, next) {

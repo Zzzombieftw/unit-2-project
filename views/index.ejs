@@ -4,13 +4,16 @@
 <main>
    <% if (user) { %>
       <a href="/comics">hi</a>
-      
+       <% profiles.forEach(profile => { %>
+         <div class="col">
+         <div class="card shadow-sm">
+       <% }) %> 
        
       
       
    <% } else{ %>
     <h2>user is not logged in</h2>
    <%} %>
-       
+   </main>  
 
 <%- include('partials/footer') %>

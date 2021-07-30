@@ -21,15 +21,17 @@
             <h5 class="card-title"><a href="/comics/<%= comics._id%>/edit"><%= comics.name %> </a></h5>
             <p>
               <a class="btn btn-danger" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                Infromation
+                Information
               </a>
               </p>
               <div class="collapse" id="collapseExample">
-                <div class="card card-body">
-            
-                Writen By: <%= comics.author %><br>
-                Released: <%= comics.released %> <br>
-                Price: <%= comics.price %> 
+                <div id="infoo"class="card card-body">
+                <div id="info">  
+                  Writen By: <%= comics.author %><br>
+                  Released: <%= comics.released %> <br>
+                  Price: $<%= comics.price %> 
+
+                </div>
 
                 <form action="/comics/<%= comics._id%>?_method=DELETE" method="POST">
                   <button type="submit"  class="btn  btn-sm btn-outline-danger">X</button>

@@ -8,8 +8,10 @@
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxbfRho7MaYY1gJubher-mQ8OuDCE_J5bR5Q&usqp=CAU/comics/<%= comics._id%>/edit"  alt="...">
    <form action="/comics/<%= comics._id %>?_method=PUT" method="POST">
     <input type="text" name="name" value="<%= comics.name%>">
-    <input type="text" name="author" value="<%= comics.author %> " placeholder="Enter Author Name">
+    <input type="text" name="author" value="<%= comics.author %> " placeholder="Enter Author Name" > 
+    <input type="number" name="price" value="<%= comics.price %> " >
     <input type="datetime-local" name="date">
+    
     <button class="btn btn-danger">Change Comic</button>
     </form>
    </form>

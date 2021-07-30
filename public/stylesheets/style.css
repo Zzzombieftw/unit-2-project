@@ -11,3 +11,21 @@ a {
 body{
  background-image: url(https://www.google.com/imgres?imgurl=https%3A%2F%2Fimage.shutterstock.com%2Fimage-vector%2Fcomic-book-cartoon-speech-bubble-600w-1809883630.jpg&imgrefurl=https%3A%2F%2Fwww.shutterstock.com%2Fimage-vector%2Fcomic-book-cartoon-speech-bubble-text-1809883630&tbnid=hrZgl6Dd7FyroM&vet=12ahUKEwibtdqlgInyAhXOYTABHf_RC6gQMygEegQIARAh..i&docid=2pjZT4C2CX2LHM&w=600&h=420&itg=1&q=belfry%20of%20bruges&hl=en&ved=2ahUKEwibtdqlgInyAhXOYTABHf_RC6gQMygEegQIARAh)
 }
+
+.transition-fade{
+  opacity: 1;
+  transition: 500ms;
+  transform: translateX(0);
+  transform-origin: left;
+}
+
+html.is-animating .transition-fade{
+  opacity: 0;
+  transform: translateX(1005);
+}
+
+html.is-leaving .transition-fade{
+  opacity: 0;
+  transform: translateX(1005);
+}
+

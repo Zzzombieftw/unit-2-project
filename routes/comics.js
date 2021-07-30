@@ -2,13 +2,13 @@ import { Router } from 'express'
 import * as comicCtrl from '../contollers/comics.js'
 const router = Router()
 
-router.post('/search',isLoggedIn ,comicCtrl.search)
 router.get('/', isLoggedIn, comicCtrl.index)
-router.get('/:id', comicCtrl.show)
-router.get('/:id/edit', comicCtrl.edit)
-router.post('/', comicCtrl.create)
-router.put('/:id', comicCtrl.update)
-router.delete('/:id', comicCtrl.delete)
+router.get('/:id', isLoggedIn,comicCtrl.show)
+router.get('/:id/edit', isLoggedIn,comicCtrl.edit)
+router.post('/search',isLoggedIn ,comicCtrl.search)
+router.post('/', isLoggedIn,comicCtrl.create)
+router.put('/:id', isLoggedIn,comicCtrl.update)
+router.delete('/:id', isLoggedIn,comicCtrl.delete)
 
 
 

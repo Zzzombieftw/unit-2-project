@@ -7,8 +7,7 @@ export {
 const profileSchema = new Schema({
   name: String,
   avatar: String,
-  comics: [{type: Schema.Types.ObjectId, ref: "Comic"}],
-  friends: [{type: Schema.Types.ObjectId, ref: "Profile"}]
+  
 }, {
   timestamps: true
 })

@@ -7,19 +7,12 @@ import { Profile } from '../models/profile.js'
 export{
     index,
     create,
-    show,
     edit,
     deleteComic as delete,
     update,
-    search
-}
-function show(req, res) {
     
 }
 
-function search(req, res) {
-  
-}
 
 function update(req, res) {
   Comic.findByIdAndUpdate(req.params.id, req.body, {new: true})

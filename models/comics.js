@@ -10,9 +10,7 @@ const comicSchema = new Schema({
   author: {type:String, required: true},
   price:{type:Number},
   released: Date,
-  collectedBy: [{ type: Schema.Types.ObjectId, ref: "Profile" }],
-  // To be filled in later
-  reviews: [{type: Schema.Types.ObjectId, ref: "comicReview"}],
+  
 },{
   timestamps: true,
 });

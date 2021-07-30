@@ -22,6 +22,9 @@
 * CSS
 * Boot strap
 * Google fonts
+* EJS
+* Mongoose and MongoDB
+* OAuth and Passport
 
 ## Future Features
 * Use a Api
